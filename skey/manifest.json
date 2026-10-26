@@ -1,0 +1,72 @@
+{
+  "model_file": "skey.onnx",
+  "model_bytes": 324536,
+  "sha256": "50bac66d5b02868afad07a0b159f08495cc3f5d8492654587e828ed4686412b1",
+  "source_commit": "918b83d273568d5041569bb8068843d19a335726",
+  "checkpoint_sha256": "78dfd0ad4fa9434bf7cec70a25934b7c575bda9c80e994700140770ad3a5ead4",
+  "sample_rate": 22050,
+  "min_seconds": 3,
+  "precision": "float32",
+  "opset": 17,
+  "labels": [
+    "A Major",
+    "Bb Major",
+    "B Major",
+    "C Major",
+    "C# Major",
+    "D Major",
+    "D# Major",
+    "E Major",
+    "F Major",
+    "F# Major",
+    "G Major",
+    "G# Major",
+    "B minor",
+    "C minor",
+    "C# minor",
+    "D minor",
+    "D# minor",
+    "E minor",
+    "F minor",
+    "F# minor",
+    "G minor",
+    "G# minor",
+    "A minor",
+    "Bb minor"
+  ],
+  "parity": [
+    {
+      "case": "short",
+      "max_score_error": 5.364418029785156e-07,
+      "key": {
+        "index": 22,
+        "label": "A minor",
+        "tonic": "A",
+        "mode": "minor",
+        "score": 0.818146
+      }
+    },
+    {
+      "case": "choice",
+      "max_score_error": 9.5367431640625e-07,
+      "key": {
+        "index": 10,
+        "label": "G Major",
+        "tonic": "G",
+        "mode": "major",
+        "score": 0.78125
+      }
+    },
+    {
+      "case": "long",
+      "max_score_error": 3.7550926208496094e-06,
+      "key": {
+        "index": 10,
+        "label": "G Major",
+        "tonic": "G",
+        "mode": "major",
+        "score": 0.737749
+      }
+    }
+  ]
+}
