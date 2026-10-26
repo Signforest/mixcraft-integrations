@@ -33,7 +33,7 @@ overlap and a triangular weight (demucs `apply_model` without shifts).
 |---|---|---|
 | `htdemucs.onnx` (joined) | 174 264 755 | `1490b84d04e8fc2f98bbdca63b84cc18f085ea8597269a3474fda9ef05f1e2c9` |
 
-Exported 2026-10-26 with torch 2.14.1 (CPU), demucs 4.0.1, onnx 1.23.2; the attention fast
+Exported 2026-10-26 with torch 2.14.1 (CPU), demucs 4.1.0, onnx 1.23.2; the attention fast
 path was disabled for the export (`torch.backends.mha.set_fastpath_enabled(False)`), which
 changes no arithmetic.
 
