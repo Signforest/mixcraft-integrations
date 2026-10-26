@@ -1,0 +1,58 @@
+{
+  "modelType": "beat-this-final0",
+  "sampleRate": 22050,
+  "mono": true,
+  "downmix": "mean",
+  "nFft": 1024,
+  "hopLength": 441,
+  "melBins": 128,
+  "window": "hann",
+  "logMultiplier": 1000,
+  "fps": 50.0,
+  "frameDuration": 0.02,
+  "chunkSize": 1500,
+  "borderSize": 6,
+  "overlapMode": "keep_first",
+  "peakKernel": 7,
+  "peakThreshold": 0.0,
+  "deduplicateWidth": 1,
+  "melFilterbank": {
+    "file": "mel-filterbank.bin",
+    "shape": [
+      513,
+      128
+    ],
+    "dtype": "float32",
+    "layout": "row-major"
+  },
+  "model": {
+    "file": "beat_this.onnx",
+    "input": {
+      "name": "spect",
+      "shape": [
+        "windows",
+        1500,
+        128
+      ],
+      "dtype": "float32"
+    },
+    "outputs": [
+      {
+        "name": "beat",
+        "shape": [
+          "windows",
+          1500
+        ],
+        "dtype": "float32"
+      },
+      {
+        "name": "downbeat",
+        "shape": [
+          "windows",
+          1500
+        ],
+        "dtype": "float32"
+      }
+    ]
+  }
+}
