@@ -1,0 +1,55 @@
+{
+  "contract": "structure-allinone-81x100fps",
+  "source": "https://github.com/mir-aidj/all-in-one",
+  "weights": "https://huggingface.co/taejunkim/allinone (harmonix-fold0 \u2026 fold7, averaged)",
+  "licence": "MIT",
+  "fps": 100,
+  "hop": 441,
+  "frame": 2048,
+  "sample_rate": 44100,
+  "bins": 81,
+  "stems": [
+    "bass",
+    "drums",
+    "other",
+    "vocals"
+  ],
+  "labels": [
+    "start",
+    "end",
+    "intro",
+    "outro",
+    "break",
+    "bridge",
+    "inst",
+    "solo",
+    "verse",
+    "chorus"
+  ],
+  "min_frames": 10240,
+  "thresholds": {
+    "beat": 0.23,
+    "downbeat": 0.19
+  },
+  "parity": {
+    "na1d": {
+      "na1d T37 k5 d1": 1.1920928955078125e-07,
+      "na1d T37 k5 d2": 1.1920928955078125e-07,
+      "na1d T64 k5 d8": 2.384185791015625e-07,
+      "na1d T5 k5 d1": 1.1920928955078125e-07,
+      "na1d T12 k5 d2": 1.1920928955078125e-07,
+      "na2d fast vs general": 1.4901161193847656e-06
+    },
+    "frontend_vs_madmom": 3.4415193006509526e-07,
+    "onnx_vs_torch": [
+      9.5367431640625e-07,
+      1.9073486328125e-06,
+      1.9073486328125e-06,
+      1.430511474609375e-06,
+      9.5367431640625e-07,
+      1.430511474609375e-06,
+      1.9073486328125e-06,
+      1.9073486328125e-06
+    ]
+  }
+}
