@@ -14,8 +14,9 @@ the SHA-256 the registry pins. Files above GitHub's 100 MB limit are stored in n
 | `beat-this` | Beat This! beat/downbeat tracker | MIT | [CPJKU/beat_this](https://github.com/CPJKU/beat_this), ONNX export [musetric/beat-this-onnx](https://huggingface.co/musetric/beat-this-onnx) |
 | `umxhq` | Open-Unmix UMX-HQ four-stem separation (vocals, drums, bass, other) | MIT | [sigsep/open-unmix-pytorch](https://github.com/sigsep/open-unmix-pytorch) weights (Zenodo 3370489), exported here with `tools/export-openunmix.py` |
 | `htdemucs` | Hybrid Transformer Demucs four-stem separation (drums, bass, other, vocals), STFT on the host | MIT | [facebookresearch/demucs](https://github.com/facebookresearch/demucs) `htdemucs` checkpoint, exported here with `tools/export-demucs.py` (two parts) |
+| `htdemucs_6s` | Hybrid Transformer Demucs six-stem separation (+ guitar, piano) | MIT | same source and script, `htdemucs_6s` checkpoint (two parts) |
 
-Every asset carries its upstream LICENSE next to it. Runtime and models are unmodified; the `umxhq` and `htdemucs` graphs are our own ONNX exports of the unmodified weights (scripts in `tools/`); the SHA-256 of
+Every asset carries its upstream LICENSE next to it. Runtime and models are unmodified; the `umxhq`, `htdemucs` and `htdemucs_6s` graphs are our own ONNX exports of the unmodified weights (scripts in `tools/`); the SHA-256 of
 each file is recorded in MixCraft's registry and in each folder's `SHA256SUMS`.
 
 `tools/` holds the scripts that produced the files. Plugins may be added later.

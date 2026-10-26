@@ -19,9 +19,11 @@ two frames (340 → 336). Inverse as `_ispec`: append a zero bin and two zero fr
 side, iSTFT normalized, cut 1536 from each end. The host overlap-adds 7.8 s segments with
 25 % overlap and a triangular weight (demucs `apply_model` without shifts).
 
-Usage: python export-demucs.py <out dir>   (torch, demucs, onnx, onnxruntime; the
-checkpoint is fetched through demucs.pretrained). Writes htdemucs.onnx, SHA256SUMS and the
-parity against the PyTorch model on random audio.
+Usage: python export-demucs.py <out dir> [htdemucs|htdemucs_6s]   (torch, demucs, onnx,
+onnxruntime; the checkpoint is fetched through demucs.pretrained). Writes <model>.onnx,
+SHA256SUMS, config.json and the parity against the PyTorch model on random audio. The 6-stem
+model (drums, bass, other, vocals, guitar, piano) has the same contract with 6 sources:
+spec_out [1, 6, 4, 2048, 336], time_out [1, 6, 2, 343980].
 """
 import hashlib
 import json
@@ -127,12 +129,12 @@ def host_ispec(h, spec_out):
     return h._ispec(z, SEGMENT)
 
 
-def main(out_dir: str) -> None:
+def main(out_dir: str, name: str = "htdemucs") -> None:
     out = pathlib.Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
     # The fused attention fast path has no ONNX export: use the plain implementation.
     torch.backends.mha.set_fastpath_enabled(False)
-    bag = get_model("htdemucs")
+    bag = get_model(name)
     h = bag.models[0].eval()
     assert h.cac and h.nfft == 4096 and h.hop_length == 1024 and int(h.segment * h.samplerate) == SEGMENT, (h.segment, h.nfft)
     core = Core(h).eval()
@@ -147,7 +149,7 @@ def main(out_dir: str) -> None:
         err_wrap = float((rebuilt - ref).abs().max())
         print(json.dumps({"check": "wrapper + host transforms vs original", "max_abs_err": err_wrap}))
         assert err_wrap < 1e-4, err_wrap
-        path = out / "htdemucs.onnx"
+        path = out / f"{name}.onnx"
         torch.onnx.export(
             core,
             (mix, spec),
@@ -189,4 +191,4 @@ def main(out_dir: str) -> None:
 
 
 if __name__ == "__main__":
-    main(sys.argv[1] if len(sys.argv) > 1 else "htdemucs")
+    main(sys.argv[1] if len(sys.argv) > 1 else "htdemucs", sys.argv[2] if len(sys.argv) > 2 else "htdemucs")

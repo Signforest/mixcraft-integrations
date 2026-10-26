@@ -1,0 +1,21 @@
+{
+  "contract": "stems-htdemucs-cac4096",
+  "sampleRate": 44100,
+  "segmentSamples": 343980,
+  "nFft": 4096,
+  "hopLength": 1024,
+  "frames": 336,
+  "bins": 2048,
+  "normalized": true,
+  "padReflect": 1536,
+  "sources": [
+    "drums",
+    "bass",
+    "other",
+    "vocals",
+    "guitar",
+    "piano"
+  ],
+  "overlap": 0.25,
+  "opset": 17
+}
