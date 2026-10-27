@@ -1,0 +1,16 @@
+api = 1
+id = "deezer-links"
+name = "Deezer links"
+version = "0.1.0"
+licence = "MIT OR Apache-2.0"
+terms = "Sends the Deezer links you paste (track, album and playlist ids) to api.deezer.com, Deezer's public API, and reads back the tracks' titles, artists, durations and ISRCs. Nothing else leaves your computer; no account is needed. Deezer's developer guidelines (https://developers.deezer.com/guidelines) apply to that data."
+terms_file = "TERMS.md"
+
+[[provides]]
+kind = "resolver"
+id = "deezer"
+label = "Deezer"
+module = "deezer_links.wasm"
+
+[requests]
+network = ["api.deezer.com"]
