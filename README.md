@@ -20,4 +20,8 @@ the SHA-256 the registry pins. Files above GitHub's 100 MB limit are stored in n
 Every asset carries its upstream LICENSE next to it. Runtime and models are unmodified; the `umxhq`, `htdemucs`, `htdemucs_6s` and `allinone` graphs are our own ONNX exports of the unmodified weights (scripts in `tools/`); the SHA-256 of
 each file is recorded in MixCraft's registry and in each folder's `SHA256SUMS`.
 
-`tools/` holds the scripts that produced the files. Plugins may be added later.
+`tools/` holds the scripts that produced the files.
+
+`plugins/` holds the official plug-ins (wasm modules for MixCraft's plug-in host, source
+next to each): see [plugins/README.md](plugins/README.md). First: `deezer-links`, a resolver
+for Deezer links in request lists.
