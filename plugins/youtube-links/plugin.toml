@@ -1,0 +1,16 @@
+api = 1
+id = "youtube-links"
+name = "YouTube links"
+version = "0.1.0"
+licence = "MIT OR Apache-2.0"
+terms = "Asks YouTube's oEmbed service for the title and channel of the YouTube and YouTube Music video links you paste, and reads the public playlist pages (www.youtube.com) of the playlist links. Reading the playlist pages is not something YouTube's terms allow: you use this plug-in at your own risk, and playlists stop working whenever YouTube changes the page. A playlist's page shows its first 100 videos. Artist and title are worked out from video titles and can be wrong. Only the ids from your links leave your computer; no account is used."
+terms_file = "TERMS.md"
+
+[[provides]]
+kind = "resolver"
+id = "youtube"
+label = "YouTube"
+module = "youtube_links.wasm"
+
+[requests]
+network = ["www.youtube.com"]
