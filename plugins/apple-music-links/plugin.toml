@@ -1,0 +1,16 @@
+api = 1
+id = "apple-music-links"
+name = "Apple Music links"
+version = "0.1.0"
+licence = "MIT OR Apache-2.0"
+terms = "Reads the public Apple Music web pages (music.apple.com) of the Apple Music links you paste and takes the songs' titles, artists and durations from them. Apple's terms do not allow reading its pages this way: you use this plug-in at your own risk, and it breaks whenever Apple changes the pages. A long playlist's page shows only its first 100 songs. Only the ids from your links leave your computer; no account is used."
+terms_file = "TERMS.md"
+
+[[provides]]
+kind = "resolver"
+id = "apple-music"
+label = "Apple Music"
+module = "apple_music_links.wasm"
+
+[requests]
+network = ["music.apple.com"]
