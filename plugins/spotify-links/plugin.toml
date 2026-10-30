@@ -1,0 +1,16 @@
+api = 1
+id = "spotify-links"
+name = "Spotify links"
+version = "0.1.0"
+licence = "MIT OR Apache-2.0"
+terms = "Reads the public Spotify embed pages (open.spotify.com/embed/…) of the Spotify links you paste and takes the tracks' titles, artists and durations from them. Spotify's terms do not allow reading its pages this way: you use this plug-in at your own risk, and it breaks whenever Spotify changes the page. Playlists show at most their first 100 tracks. Only the Spotify ids from your links leave your computer; no account is used."
+terms_file = "TERMS.md"
+
+[[provides]]
+kind = "resolver"
+id = "spotify"
+label = "Spotify"
+module = "spotify_links.wasm"
+
+[requests]
+network = ["open.spotify.com"]
