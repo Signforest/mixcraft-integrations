@@ -11,6 +11,7 @@ later), accept the terms, grant the hosts the plug-in asks for, switch it on.
 |---|---|---|---|
 | `deezer-links` | `resolver` | Deezer track, album and playlist links in a request list → titles, artists, durations, ISRCs through Deezer's public API (no key, no account) | `api.deezer.com` |
 | `spotify-links` | `resolver` | Spotify track, album and playlist links → titles, artists, durations read from Spotify's public embed pages (no key, no account). **Not an official API:** against Spotify's terms, breaks when the page changes, playlists cut at 100 tracks; its terms screen says so | `open.spotify.com` |
+| `apple-music-links` | `resolver` | Apple Music song, album and playlist links → titles, artists, durations read from the public music.apple.com pages (no key, no account). **Not an official API:** against Apple's terms, breaks when the page changes, playlists cut at 100 songs; its terms screen says so | `music.apple.com` |
 
 ## Building
 
