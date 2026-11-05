@@ -23,5 +23,5 @@ each file is recorded in MixCraft's registry and in each folder's `SHA256SUMS`.
 `tools/` holds the scripts that produced the files.
 
 `plugins/` holds the official plug-ins (wasm modules for MixCraft's plug-in host, source
-next to each): see [plugins/README.md](plugins/README.md). First: `deezer-links`, a resolver
-for Deezer links in request lists.
+next to each): see [plugins/README.md](plugins/README.md): link resolvers for request lists, and
+`lame-mp3`, the MP3 encoder (LAME, LGPL, a separate package from MixCraft's MIT/Apache code).
