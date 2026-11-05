@@ -1,0 +1,15 @@
+api = 1
+id = "lame-mp3"
+name = "MP3 encoder (LAME)"
+version = "3.100.0"
+licence = "LGPL-2.0-or-later"
+homepage = "https://lame.sourceforge.io/"
+summary = "Writes MP3 files: recordings, tracks converted for a USB stick, encode.file. LAME compiled to WebAssembly; runs in MixCraft's sandbox without file or network access."
+terms = "This plug-in is LAME's MP3 encoder library (libmp3lame 3.100), free software under the GNU Lesser General Public License, version 2 or later (COPYING). It is a separate package and not part of MixCraft, which is MIT OR Apache-2.0. SOURCE.md says where the exact source is; you may replace lame-mp3.wasm with your own build. The MP3 patents have expired."
+
+[[provides]]
+kind = "encoder"
+id = "mp3"
+label = "MP3 (LAME)"
+module = "lame-mp3.wasm"
+formats = ["mp3"]

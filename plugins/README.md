@@ -13,10 +13,11 @@ later), accept the terms, grant the hosts the plug-in asks for, switch it on.
 | `spotify-links` | `resolver` | Spotify track, album and playlist links → titles, artists, durations read from Spotify's public embed pages (no key, no account). **Not an official API:** against Spotify's terms, breaks when the page changes, playlists cut at 100 tracks; its terms screen says so | `open.spotify.com` |
 | `apple-music-links` | `resolver` | Apple Music song, album and playlist links → titles, artists, durations read from the public music.apple.com pages (no key, no account). **Not an official API:** against Apple's terms, breaks when the page changes, playlists cut at 100 songs; its terms screen says so | `music.apple.com` |
 | `youtube-links` | `resolver` | YouTube and YouTube Music video links → title and channel through oEmbed (documented, keyless); playlist links → each video's title, channel and length from the public playlist page (first 100 videos). Artist and title are worked out from the video title. **Playlist pages are not an official API:** against YouTube's terms, brittle; its terms screen says so | `www.youtube.com` |
+| `lame-mp3` | `encoder` | MP3 files (recordings, tracks converted for a USB stick, `encode.file`): LAME's libmp3lame 3.100 compiled to WebAssembly, gapless (Xing/LAME header), CBR/VBR/ABR. **LGPL** (`LICENSE`, `COPYING`, `SOURCE.md`); C, built by its own `build.sh` (wasi-sdk), see its README | none |
 
 ## Building
 
-Every plug-in is a Rust `cdylib` for `wasm32-unknown-unknown` without WASI (`no_std` with a
+Every plug-in except `lame-mp3` is a Rust `cdylib` for `wasm32-unknown-unknown` without WASI (`no_std` with a
 bump allocator; the host offers no OS):
 
 ```sh
@@ -27,7 +28,8 @@ cp target/wasm32-unknown-unknown/release/<crate name>.wasm ./<module name in plu
 sha256sum plugin.toml TERMS.md *.wasm > SHA256SUMS
 ```
 
-`tools/build-plugins.sh` does this for every folder. The checked-in `.wasm` is what MixCraft
+`tools/build-plugins.sh` does this for every folder (and runs `lame-mp3/build.sh`, which fetches
+LAME and wasi-sdk at pinned checksums and compiles the C library; see its README). The checked-in `.wasm` is what MixCraft
 users install; rebuild it in the same commit as any source change.
 
 Tests run on the build machine: `cd plugins/<name> && cargo test` (where a plug-in has them;

@@ -3,6 +3,7 @@
 set -eu
 cd "$(dirname "$0")/.."
 for dir in plugins/*/; do
+  if [ -x "$dir/build.sh" ]; then "$dir/build.sh"; continue; fi
   [ -f "$dir/Cargo.toml" ] || continue
   name=$(sed -n 's/^name = "\(.*\)"/\1/p' "$dir/Cargo.toml" | head -1 | tr '-' '_')
   module=$(sed -n 's/^module = "\(.*\)"/\1/p' "$dir/plugin.toml" | head -1)
