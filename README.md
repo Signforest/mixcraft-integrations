@@ -16,8 +16,9 @@ the SHA-256 the registry pins. Files above GitHub's 100 MB limit are stored in n
 | `htdemucs` | Hybrid Transformer Demucs four-stem separation (drums, bass, other, vocals), STFT on the host | MIT | [facebookresearch/demucs](https://github.com/facebookresearch/demucs) `htdemucs` checkpoint, exported here with `tools/export-demucs.py` (two parts) |
 | `htdemucs_6s` | Hybrid Transformer Demucs six-stem separation (+ guitar, piano) | MIT | same source and script, `htdemucs_6s` checkpoint (two parts) |
 | `allinone` | All-In-One song structure (intro, verse, chorus …), beats and downbeats from the four stems | MIT | [mir-aidj/all-in-one](https://github.com/mir-aidj/all-in-one), the eight `harmonix` folds from `taejunkim/allinone`, exported here with `tools/export-allinone.py` (neighbourhood attention rebuilt from gathers) |
+| `clap-music` | LAION-CLAP music audio encoder: 512-dimensional audio embeddings for MixCraft's Sounds like | Apache-2.0 | [LAION-AI/CLAP](https://github.com/LAION-AI/CLAP), checkpoint [`laion/larger_clap_music`](https://huggingface.co/laion/larger_clap_music) (pinned revision), audio half exported here with `tools/export-clap.py` (three parts) |
 
-Every asset carries its upstream LICENSE next to it. Runtime and models are unmodified; the `umxhq`, `htdemucs`, `htdemucs_6s` and `allinone` graphs are our own ONNX exports of the unmodified weights (scripts in `tools/`); the SHA-256 of
+Every asset carries its upstream LICENSE next to it. Runtime and models are unmodified; the `umxhq`, `htdemucs`, `htdemucs_6s`, `allinone` and `clap-music` graphs are our own ONNX exports of the unmodified weights (scripts in `tools/`); the SHA-256 of
 each file is recorded in MixCraft's registry and in each folder's `SHA256SUMS`.
 
 `tools/` holds the scripts that produced the files.
